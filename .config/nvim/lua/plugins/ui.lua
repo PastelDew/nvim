@@ -1,7 +1,7 @@
 return {
   {
     "folke/noice.nvim",
-    opts = function(_, opts)
+    opts = function(_, opts) 
       table.insert(opts.routes, {
         filter = {
           event = "notify",
@@ -26,7 +26,7 @@ return {
   {
     "echasnovski/mini.animate",
     event = "VeryLazy",
-    opts = function(_, opts)
+    opts = function(_, opts) 
       opts.scroll = {
         enable = false,
       }
@@ -37,18 +37,27 @@ return {
   {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
-    opts = function(_, opts)
-      local logo = [[
-::::::::::.                      `::             `::. :::::::-.                        
- `;;;```.;;;                      ;;              ;;;  ;;,   `';,                      
-  `))nnn))'  ,ccc,   ,cc[[[cc. =[[[[[[.,cc[[[cc.  [[[  `[[     [[,cc[[[cc. '[[, [[, [['
-   $$$""    $$$cc$$$ $$$____      $$   $$$___--'  $$'   $$,    $$$$$___--'   Y$ $$$ $P 
-   888o     888   888 .     88,   88,  88b    ,o, \8o   888_,o8P'88b    ,o,   "88"888  
-   YMMMb     "YUM" MP "YUMMMMP"   MMM   "YUMMMMP"  MM;  MMMMP"`   "YUMMMMP"    "M "M"  
+    opts = function(_, opts) 
+      local logo = [[ 
+     _________                               
+    / ======= \                              
+   / __________\                             
+  | ___________ |                            
+  | | -       | |                            
+  | |         | |                            
+  | |_________| |________________________    
+  \=____________/          PD Lab.       )   
+  / """"""""""" \                       /   
+ / ::::::::::::: \                  =D-'    
+(_________________)                          
       ]]
 
       logo = string.rep("\n", 8) .. logo .. "\n\n"
       opts.config.header = vim.split(logo, "\n")
+    end,
+    config = function(_, opts) 
+      require("dashboard").setup(opts)
+      vim.api.nvim_set_hl(0, "DashboardHeader", { fg = "#a7c7e7" })
     end,
   },
 }
