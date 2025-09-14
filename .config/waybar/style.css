@@ -1,0 +1,63 @@
+/* ----- 기본 글꼴/크기 ----- */
+* {
+  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font Mono",
+               "Font Awesome 6 Free", "Material Design Icons Desktop",
+               monospace;
+  font-size: 12px;
+  min-height: 0;
+}
+
+/* ----- 바 컨테이너 ----- */
+window#waybar {
+  background: rgba(20, 22, 26, 0.55);   /* 살짝 투명 */
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: #d7dce2;
+}
+
+/* 전체 모듈 공통 패딩/간격 */
+#workspaces, #clock, #battery, #network, #pulseaudio, #thermal,
+#window, #custom-power, #custom-launcher {
+  padding: 0 10px;
+}
+
+/* 좌/우 끝 모듈은 더 얇게 */
+#custom-launcher { padding-left: 12px; padding-right: 8px; }
+#custom-power    { padding-left: 8px;  padding-right: 12px; }
+
+/* 구분선(세퍼레이터) 느낌 */
+#pulseaudio, #network, #battery, #custom-power {
+  border-left: 1px solid rgba(255,255,255,0.08);
+}
+
+/* 워크스페이스 */
+#workspaces button {
+  padding: 0 6px;
+  color: #aab2bf;
+}
+#workspaces button.active {
+  color: #e6eef7;
+  background: rgba(255,255,255,0.08);
+  border-radius: 6px;
+}
+#workspaces button.urgent {
+  color: #ffffff;
+  background: #d9534f;
+  border-radius: 6px;
+}
+
+/* 윈도우 타이틀은 여유 있게, 과한 폰트 밝기 줄임 */
+#window {
+  color: #c7cdd6;
+}
+
+/* 온도 경고 색 */
+#thermal.critical { color: #ff6b6b; }
+
+/* 배터리 상태색 */
+#battery.critical { color: #ff6b6b; }
+#battery.warning  { color: #ffbe55; }
+#battery.good     { color: #aee571; }
+
+/* 음소거 색 */
+#pulseaudio.muted { color: #8892a6; }
+
